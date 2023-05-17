@@ -166,6 +166,7 @@ Map.updateLayers = function () {
             view: Map.ship.view,
             t: Math.floor(Date.now() / 1000)
         }
+              dataType: 'jsonp'
         , function (data) {
 
 
