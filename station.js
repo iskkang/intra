@@ -92,7 +92,7 @@ StationPage.prototype.realtime = function() {
 }
 ,
 StationPage.prototype.initStatistics = function(e) {
-    $.getJSON("https://www.aishub.net/station/" + this.id + "/" + e.type + "-statistics.json", function(t) {
+    $.getJSON("https://www.aishub.net/station/" + this.id + "/" + e.type + "-statistics.json", dataType: 'jsonp', function(t) {
         $("#" + e.type + "Loader").hide(),
         stationPage.statistics[e.type] = {
             config: "",
@@ -194,7 +194,7 @@ StationPage.prototype.initStatistics = function(e) {
 }
 ,
 StationPage.prototype.updateStatistics = function(a) {
-    $.getJSON("https://www.aishub.net/station/" + this.id + "/" + a.config.type + "-statistics.json?lastUpdate=" + a.chart.data.labels.last(), function(t) {
+    $.getJSON("https://www.aishub.net/station/" + this.id + "/" + a.config.type + "-statistics.json?lastUpdate=" + a.chart.data.labels.last(), dataType: 'jsonp', function(t) {
         void 0 !== t.count && (a.chart.data.labels.shift(),
         t.labels.forEach(function(t) {
             a.chart.data.labels.push(t)
